@@ -1,0 +1,30 @@
+```java
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Solution {
+    public ListNode FindKthToTail(ListNode head,int k) {
+        ListNode slow = head;
+        ListNode fast = head;
+        for (int i = 1; i <= k; i++) {
+            if (fast != null) {
+                fast = fast.next;
+            } else {
+                return null;
+            }
+        }
+        
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+}
+```
